@@ -1,28 +1,59 @@
-// import {render, screen} from '@testing-library/react';
-// import '@testing-library/jest-dom'
-// import { describe } from 'node:test';
+// import { render, screen } from '@testing-library/react';
+// import '@testing-library/jest-dom';
 // import Products from '../../pages/Products';
+// import { MemoryRouter } from 'react-router-dom';
 
-// import { getAllProducts } from '../../pages/Products'; // Importera modulen som ska mockas
 
-// jest.mock('../../pages/Products'); // Mocka modulen
+// describe('Testing the "Products" page', () => { 
 
-// describe('Testing data fetching', () => {
-//   test('Mocked data fetching', async () => {
-//     // Ange hur fetchData-mocken ska returnera data
-//     (getAllProducts as jest.Mock).mockResolvedValue({ data: 'mocked data' });
-
-//     // Anropa funktionen som använder fetchData
-//     const result = await getAllProducts();
-
-//     expect(result).toEqual({ data: 'mocked data' });
-//   });
+  
+//     it('should render a div element',() => {
+//         render(
+//             <MemoryRouter>
+//                 <Products />
+//             </MemoryRouter>)
+//         const div = screen.getByRole('div')
+//         expect(div).toBeInTheDocument();
+//     })
 // });
 
-// describe('Product page', () => {
-//     it('should show products', () => {
+// describe('Products page', () => {
+//     it('should have a heading stating "Taste the Wonder of Christmas Sweets"', () => {
+//       // Arrange...
+//       render(<Products />);
+//       // Act...
+//       const heading = screen.getByRole('heading', {name: /"Taste the Wonder of Christmas Sweets"/i});
+//       // Assert...
+//       expect(heading).toBeInTheDocument();
+//         });
+//     });
+
+  
+// describe('Product info should have a button for adding and removing to shopping cart', () => {
+//       it('should have a button with the text Add to cart', () => {
 //         render(<Products />);
-//         const heading = screen.getByRole('heading', {name: /Välkommen/i});
-//         expect(heading).toBeInTheDocument();
-//     })   
-// })
+//         const button = screen.getByRole('button', { name: /Add to cart/i });
+
+//         expect(button).toBeInTheDocument();
+//       });
+  
+//       it('the button should be red', () => {
+//         // Arrange...
+//         render(<Products />);
+//         const button = screen.getByRole('button', { name: /Add to cart/i });
+//         expect(button).toHaveStyle({ 'background-color': 'red' });
+       
+//       });
+  
+//       it('the button should change background to gray when clicked', () => {
+//         // Arrange...
+//         render(<Products />);
+//         // Act...
+//         const button = screen.getByRole('button', { name: /Add to cart/i });
+//         fireEvent.click(button);
+  
+//         expect(button).toHaveStyle({ 'background-color': 'gray' });
+//       });
+  
+     
+//   });

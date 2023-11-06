@@ -14,4 +14,4 @@ dancing scripts
 
 
 ## TDD
-ProduktInfo-sidan är byggd med TDD (testdriven utveckling), se test i mappen productinfo under __tests__
+Products-sidan är byggd med något test enligt TDD (testdriven utveckling), se test i mappen products under __tests__

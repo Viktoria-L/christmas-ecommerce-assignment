@@ -1,19 +1,21 @@
 import { useLocation } from "react-router-dom";
-import { Product } from "../models/products";
-import React from "react";
+// import { Product } from "../models/products";
 
-interface ProductInfoProps {
-  product: Product;
-}
 
-const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
+// interface ProductInfoProps {
+//   product: Product;
+// }
+
+const ProductInfo = () => {
   const location = useLocation();
-  product = location.state;
+  const product = location.state;
 
   console.log(product);
 
   return (
-    <div>ProductInfo</div>
+    <div>ProductInfo
+      <img src={product.image}/>
+    </div>
   )
 }
 
