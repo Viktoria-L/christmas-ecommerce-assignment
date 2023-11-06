@@ -3,6 +3,9 @@
 gör interface eller type för datan
 gör kanske en 404-sida?
 felmeddelande om fetchen gick fel på produktsidan och produktinfosidan
+productcard - lägg img + title eller bara title? i en Link
+
+fixa learn more knappen till något annat  + Link den är nu en Atagg
 
 ## font
 christmas

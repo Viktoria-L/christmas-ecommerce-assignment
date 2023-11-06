@@ -1,12 +1,6 @@
 import React from 'react';
-
-
-// Skapa ett gränssnitt för produkten
-// export interface Product {
-//     id: number;
-//     name: string;
-//     description: string;
-//   }
+import { Product } from '../models/products';
+import { Link } from 'react-router-dom';
   
   // Props för komponenten
 type Productcard = {
@@ -17,11 +11,12 @@ type Productcard = {
 const ProductCard: React.FC<Productcard> = ({product}) => {
   return (
     <div className="ecommerce-card min-w-[230px]">
+      <Link to={`/product/${product.id}`} state={product}>
       <img src={product.image} alt={product.name} className='max-w-full h-56'/>
-      <h3>{product.name}</h3>
+      <h3>{product.name}</h3></Link>
       <button>Add to Cart</button>
     </div>
   )
 }
 
-export default ProductCard
+export default ProductCard;

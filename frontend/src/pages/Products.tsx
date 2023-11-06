@@ -3,15 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 //import { Product } from '../components/ProductCard';
 import axios from 'axios';
-
-
-
-//Behöver typ göra om interface / type för den datan som kommer eller skicka in rätt data ?
-type Product = {
-  id: number;
-  name: string;
-  description: string;
-}
+import { Product } from '../models/products';
 
 const Products = () => {
   let products: Product[] = (useLoaderData() as Product[]) || [];
