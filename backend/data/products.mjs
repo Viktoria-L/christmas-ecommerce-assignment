@@ -23,7 +23,6 @@ const products = [
       "description": "Description of item 1",
       "image": "http://localhost:3000/marshmallows.jpg",
       "stock": 10
-
     }
     
   ]

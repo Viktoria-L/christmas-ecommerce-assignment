@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product } from '../models/products';
+import { Product } from '../models/productModels';
 import { Link } from 'react-router-dom';
   
   // Props för komponenten

@@ -12,6 +12,10 @@ export default {
       ...defaultTheme.screens,
     },
     extend: {},
+    fontFamily: {
+      noto: ['Noto Sans'],
+      dancing: ['Dancing script']
+    }
   },
   plugins: [],
 }

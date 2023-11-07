@@ -1,9 +1,17 @@
 ## todo frontend
+komprimera bilderna eller kör så de laddar olika beroende på vad som behövs
 
 gör interface eller type för datan
 gör kanske en 404-sida?
 felmeddelande om fetchen gick fel på produktsidan och produktinfosidan
 productcard - lägg img + title eller bara title? i en Link
+### Root
+logo, header - cart?
+### Navbar 
+cart ikon
+
+### productinfo:
+- funktion add to cart - global state? 
 
 fixa learn more knappen till något annat  + Link den är nu en Atagg
 

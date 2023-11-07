@@ -6,7 +6,6 @@ const listProducts =  (req,res) => {
     const response = getDataClient('list products', page);
     console.log("list", response)
     res.status(response.statusCode).json(response);
-
 }
 
 //Behövs ens en sök?

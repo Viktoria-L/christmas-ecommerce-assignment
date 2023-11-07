@@ -1,44 +1,33 @@
-
-import { useLoaderData } from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
-//import { Product } from '../components/ProductCard';
-import axios from 'axios';
-import { Product } from '../models/products';
+import { ProductInfo } from '../models/productModels';
+import { getHeroPropsForPage } from '../components/Hero';
+import { HeroProps } from '../models/productModels';
+import Hero from '../components/Hero';
 
 const Products = () => {
-  let products: Product[] = (useLoaderData() as Product[]) || [];
-
+  let products: ProductInfo[] = (useOutletContext() as ProductInfo[]) || [];
+  const heroInfo = (getHeroPropsForPage('Products') as HeroProps);
   console.log('produktdatan: ', products);
+
+//Går det skicka in typ {...heroInfo} 
 
   return (
     <div>
-      <h2>Productpage</h2>
+      <Hero title={heroInfo.title} subtitle={heroInfo.subtitle} text={heroInfo.text} buttons={heroInfo.buttons} />
+      
       <div className='flex flex-wrap justify-center gap-8'>
         {products.length !== 0 ? products.map((product) => (
           <ProductCard key={product.id} product={product} />
           )) : (<div><h3>Sorry, something went wrong with the fetch. Cant display data</h3></div>)}
       </div>
-    </div>
+
+      </div>
+    
   );
 }
 
 export default Products;
 
 
-
-//------------- Get All Products ----------------//
-
-
-export const getAllProducts = async () => {
-  console.log("nu anropas apiet");
-  try {
-    const response = await axios.get('http://localhost:3000/api/v1/products/list')
-    return response.data.data;
-  } catch(error) {
-    console.log(error)
-    return null;
-  }
-  
-
-}
 

@@ -1,7 +1,4 @@
 import products from '../data/products.mjs';
-
-
-
 //Kanske ta bort page? för jag lär ju inte ha flera sidor av prdukter?
 
 const fetchData = (endpoint, page=1, query=null) => {

@@ -2,12 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-primary {
+    @apply block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 xs:w-auto;
+  }
+
+  .btn-secondary {
+    @apply block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 xs:w-auto;
+  }
+}
+
 :root {
   max-width: 1280px;
   margin: 0 auto;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Noto Sans;
   line-height: 1.5;
   font-weight: 400;
+  
 }
 
 
