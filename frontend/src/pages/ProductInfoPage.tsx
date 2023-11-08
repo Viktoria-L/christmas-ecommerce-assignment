@@ -1,25 +1,36 @@
 import { useLocation, useOutletContext, useParams } from "react-router-dom";
 import { ProductInfo } from "../models/productModels";
-import { getProduct } from "../utils/http";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+
 
 const ProductInfoPage = () => {
-    // let product: ProductInfo;
+    const [count, setCount] = useState(1);
+
     const location = useLocation();
     const { id } = useParams();
-    console.log("id från useparam", id)
     let product = location.state;
-    console.log("product", product)
 
     if(product === null){
         const productId = Number(id);
-        console.log("productId", productId)
          let allProducts: ProductInfo[] = useOutletContext() as ProductInfo[];
-        console.log("alla", allProducts)
         product = allProducts.find((product) => product.id === productId);
-        console.log("product igen", product)
     }
 
+    const handleIncrement = () => {
+        setCount(count + 1);
+      };
+    const handleDecrement = () => {
+        if(count > 1){
+            setCount(count - 1);
+        }
+    }
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+       const input: number = Number(e.target.value);
+        if(input >= 1){
+        setCount(input);
+        }        
+    }
+    
 
   return (
   <section className="py-20 overflow-hidden bg-white dark:bg-gray-800">
@@ -62,12 +73,12 @@ const ProductInfoPage = () => {
                         <div className="mb-4 mr-4 lg:mb-0">
                             <div className="w-28">
                                 <div className="relative flex flex-row w-full h-10 bg-transparent rounded-lg">
-                                    <button className="w-20 h-full text-gray-600 bg-gray-100 border-r rounded-l outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-300">
+                                    <button onClick={handleDecrement} className="w-20 h-full text-gray-600 bg-gray-100 border-r rounded-l outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 hover:text-gray-700 dark:bg-gray-900 hover:bg-gray-300">
                                         <span className="m-auto text-2xl font-thin">-</span>
                                     </button>
-                                    <input type="number" className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black"
-                                        placeholder="1" />
-                                    <button className="w-20 h-full text-gray-600 bg-gray-100 border-l rounded-r outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-900 hover:text-gray-700 hover:bg-gray-300">
+                                    <input type="text" className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black"
+                                       value={count} onChange={()=>{handleInputChange}} />
+                                    <button onClick={handleIncrement} className="w-20 h-full text-gray-600 bg-gray-100 border-l rounded-r outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-900 hover:text-gray-700 hover:bg-gray-300">
                                         <span className="m-auto text-2xl font-thin">+</span>
                                     </button>
                                 </div>

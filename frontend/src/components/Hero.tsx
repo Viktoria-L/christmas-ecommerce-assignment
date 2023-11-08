@@ -51,9 +51,14 @@ export function getHeroPropsForPage(page: string) {
       const data = {
         title: "Taste the Wonder of",
         subtitle: "Christmas Sweets",
-        text: "At our store, we take pride in offering healthy, wholesome candy options that you can enjoy guilt-free. Our candies are crafted with care, using only the finest, natural ingredients.        We believe in delivering a delicious taste experience while avoiding artificial additives and unnecessary preservatives. Indulge in the pure, unadulterated sweetness of our treats and savor the difference of a healthier choice. Treat yourself to the goodness of our candy, because you deserve the best",
+        text: "",
         buttons: false,
       };
       return data;
+
+    
     }
   }
+
+  //Text för produktsidan är för lång
+  // At our store, we take pride in offering healthy, wholesome candy options that you can enjoy guilt-free. Our candies are crafted with care, using only the finest, natural ingredients.        We believe in delivering a delicious taste experience while avoiding artificial additives and unnecessary preservatives. Indulge in the pure, unadulterated sweetness of our treats and savor the difference of a healthier choice. Treat yourself to the goodness of our candy, because you deserve the best

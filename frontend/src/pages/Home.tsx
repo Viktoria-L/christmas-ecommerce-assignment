@@ -4,9 +4,7 @@ import { HeroProps } from "../models/productModels";
 
 const Home = () => {
 
-  const heroInfo = (getHeroPropsForPage('Home') as HeroProps);
-  console.log(heroInfo)
-  
+  const heroInfo = (getHeroPropsForPage('Home') as HeroProps);  
   return (
     <div>
       <Hero title={heroInfo.title} subtitle={heroInfo.subtitle} text={heroInfo.text} buttons={true} />
