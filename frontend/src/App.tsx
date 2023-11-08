@@ -11,6 +11,7 @@ import Products from "./pages/Products";
 import ProductInfoPage from './pages/ProductInfoPage'
 import { getAllProducts } from "./utils/http";
 import About from "./pages/About";
+import CartProvider from './utils/context/cartContext';
 
 function App() {
   const router = createBrowserRouter(
@@ -26,7 +27,9 @@ function App() {
 
   return (
     <>
-  <RouterProvider router={router} />
+    <CartProvider>
+        <RouterProvider router={router} />
+    </CartProvider>
     </>
   )
 }

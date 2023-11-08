@@ -3,17 +3,28 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import ProductInfo from "../../pages/ProductInfoPage";
 import '@testing-library/jest-dom'
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
+import { useCart } from "../../utils/context/cartContext";
+
+
+
+
+// Mocka din CartContext (om du har en)
+jest.mock('../../utils/context/cartContext', () => ({
+  useCart: () => ({
+    dispatch: jest.fn(), // Mocka dispatch-funktionen
+  }),
+}));
+
+const fakeProduct = {    
+    "id": 6,
+    "name": "Holiday Macaroon Medley",
+    "price": 80,
+    "weight": 150,
+    "description": "Indulge in the delightful flavors of the season with our Holiday Macaroon Medley. These exquisite macaroons are a delightful blend of festive colors and exquisite tastes. Each macaroon is carefully crafted to capture the spirit of Christmas with flavors like cranberry, white chocolate, and gingerbread. These Holiday Macaroons are perfect for adding a touch of elegance to your holiday celebrations or as a delightful gift for loved ones. Experience the magic of the holidays with these charming and delectable treats.",
+    "image": "http://localhost:3000/macaroons.jpg",
+}
 
 describe('ProductInfo page', ()=> {
-  const fakeProduct = {
-    
-      "id": 6,
-      "name": "Holiday Macaroon Medley",
-      "price": 80,
-      "weight": 150,
-      "description": "Indulge in the delightful flavors of the season with our Holiday Macaroon Medley. These exquisite macaroons are a delightful blend of festive colors and exquisite tastes. Each macaroon is carefully crafted to capture the spirit of Christmas with flavors like cranberry, white chocolate, and gingerbread. These Holiday Macaroons are perfect for adding a touch of elegance to your holiday celebrations or as a delightful gift for loved ones. Experience the magic of the holidays with these charming and delectable treats.",
-      "image": "http://localhost:3000/macaroons.jpg",
-  }
 
   beforeEach(() => {
         const router = createMemoryRouter(
@@ -50,16 +61,12 @@ describe('ProductInfo page', ()=> {
 
 
 describe('Product info page should have a button for adding and removing to shopping cart', () => {
-  const fakeProduct = {
-    
-    "id": 6,
-    "name": "Holiday Macaroon Medley",
-    "price": 80,
-    "weight": 150,
-    "description": "Indulge in the delightful flavors of the season with our Holiday Macaroon Medley. These exquisite macaroons are a delightful blend of festive colors and exquisite tastes. Each macaroon is carefully crafted to capture the spirit of Christmas with flavors like cranberry, white chocolate, and gingerbread. These Holiday Macaroons are perfect for adding a touch of elegance to your holiday celebrations or as a delightful gift for loved ones. Experience the magic of the holidays with these charming and delectable treats.",
-    "image": "http://localhost:3000/macaroons.jpg",
-}
-
+  const cartContext = useCart(); 
+  if (!cartContext) {
+    // Om context är undefined
+    return null; // eller visa ett alternativt innehåll
+  }
+  const { dispatch } = cartContext;
   beforeEach(() => {
       const router = createMemoryRouter(
           [{ path: "/", element: <ProductInfo /> }],
@@ -78,8 +85,12 @@ describe('Product info page should have a button for adding and removing to shop
   
       it('clicking the Add to cart button will add product to cart', () => {
         const button = screen.getByRole('button', { name: /Add to cart/i });
+      
         fireEvent.click(button);
-        expect(button).toHaveStyle({ 'background-color': 'red' });
+        expect(dispatch).toHaveBeenCalledWith({
+          type: 'ADD_TO_CART',
+          payload: fakeProduct,
+        });
        
       });
 });

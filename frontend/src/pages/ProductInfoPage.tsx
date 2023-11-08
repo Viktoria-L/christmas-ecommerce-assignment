@@ -1,6 +1,7 @@
 import { useLocation, useOutletContext, useParams } from "react-router-dom";
 import { ProductInfo } from "../models/productModels";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useCart } from "../utils/context/cartContext";
 
 
 const ProductInfoPage = () => {
@@ -14,6 +15,20 @@ const ProductInfoPage = () => {
         const productId = Number(id);
          let allProducts: ProductInfo[] = useOutletContext() as ProductInfo[];
         product = allProducts.find((product) => product.id === productId);
+    }
+
+    const cartContext = useCart(); 
+
+    if (!cartContext) {
+    // Om context är undefined
+    return null; // eller visa ett alternativt innehåll
+    }
+    const { dispatch } = cartContext;
+
+    const addToCart = (product: ProductInfo) =>{
+        for (let i = 0; i < count; i++) {
+        dispatch({type: 'ADD_TO_CART', payload: product});
+        }
     }
 
     const handleIncrement = () => {
@@ -30,6 +45,10 @@ const ProductInfoPage = () => {
         setCount(input);
         }        
     }
+
+    useEffect(() => {
+        console.log("ändrat count", count)
+    }, [count])
     
 
   return (
@@ -85,7 +104,7 @@ const ProductInfoPage = () => {
                             </div>
                         </div>
                         <div className="mb-4 mr-4 lg:mb-0">
-                            <button className="btn-primary">
+                            <button onClick={()=> addToCart(product)} className="btn-primary">
                                 Add to cart</button>
                         </div>
                     </div>

@@ -24,4 +24,32 @@ export interface ProductData {
     data: ProductInfo;
 }
 
-//Tänkte bygga upp interface för produkterna och lägga in
+//Types för korgen och contexten
+
+export type CartState = {
+   myCart: ProductInfo[]
+}
+
+export type CartAction = {
+    type: string,
+    payload: any,
+ }
+ 
+
+
+// export type ContextProps = {
+//     children: React.ReactNode;
+// }
+
+// export type ContextType = {
+//     cart: CartType;
+//     setCart: React.Dispatch<React.SetStateAction<CartType>>;
+// }
+
+// export type CartProps = {
+//     cart : CartType,
+//     setCart: React.Dispatch<React.SetStateAction<CartType>>;
+//     modalCart: boolean;
+//     setModalCart: React.Dispatch<React.SetStateAction<boolean>>;
+//     setProducts: React.Dispatch<React.SetStateAction<ProductStateType[]>>;
+// }
