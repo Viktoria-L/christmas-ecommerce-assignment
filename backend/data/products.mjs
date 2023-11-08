@@ -8,7 +8,7 @@ const products = [
       "stock": 10
     },
     {
-      "id": 1,
+      "id": 2,
       "name": "Marschmallows",
       "price": 25,
       "description": "Description of item 1",
@@ -17,7 +17,7 @@ const products = [
 
     },
     {
-      "id": 1,
+      "id": 3,
       "name": "Marschmallows",
       "price": 25,
       "description": "Description of item 1",

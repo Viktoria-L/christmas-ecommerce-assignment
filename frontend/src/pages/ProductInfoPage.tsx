@@ -7,66 +7,18 @@ const ProductInfoPage = () => {
     // let product: ProductInfo;
     const location = useLocation();
     const { id } = useParams();
-    const [product, setProduct] = useState<any>(location.state);
-  
-    const fetchProduct = async () => {
-      try {
-        console.log("Försöker hämta produkt...");
-        const response = await getProduct({ params: id });
-        const fetchedProduct = await response.json();
-        console.log("Produkt hämtad:", fetchedProduct);
-        setProduct(fetchedProduct);
-      } catch (error) {
-        console.error("Ett fel uppstod vid hämtning av produkten:", error);
-      }
-    };
-  
-    useEffect(() => {
-        console.log("hej från USEFFET")
-      if (product === null) {
-        console.log("Försöker fetcha produkt...");
-        fetchProduct();
-      }
-    }, [product, id, location.state]);
+    console.log("id från useparam", id)
+    let product = location.state;
+    console.log("product", product)
 
-
-   //const [product, setProduct] = useState<any | null>(null); // Använd den korrekta datatypen för din produkt
-//     const location = useLocation();
-//     const { id } = useParams();
-//     console.log("locationstate", location.state)
-//     console.log("useparam id", id)
-
-//     let product = location.state;
-
-//     const fetchProduct = async () => {  
-//         console.log(await getProduct({params: id}))      
-//             const fetchedProduct = await getProduct({params: id});
-//             console.log("fetchad", fetchedProduct)
-//             return fetchProduct;
-//    }
-
-//     if(product === null){
-//         console.log("försöker fetcha produkt");
-//         product = fetchProduct();   
-//         console.log(product)
-//     }
-    // useEffect(() => {
-    //     console.log("inuti useeffect")
-    //     if(location.state !== null){
-    //         setProduct(location.state);
-    //         console.log(product)
-    //     }
-    //     else {
-    //         const fetchedProduct = getProduct({params: id});
-    //         console.log("fetchad", fetchedProduct)
-    //     }
-    //   }, [location, id]);
-    //let product = location.state;
-
-
-  
-      //Nånting är gravt fel här iaf. det jag vill görqa är en logik som fetchar enskild produkt ifall det inte finns någon
-      //locfation state data, eftersom man kanske går till sidan via urlen och då finns ingen data där
+    if(product === null){
+        const productId = Number(id);
+        console.log("productId", productId)
+         let allProducts: ProductInfo[] = useOutletContext() as ProductInfo[];
+        console.log("alla", allProducts)
+        product = allProducts.find((product) => product.id === productId);
+        console.log("product igen", product)
+    }
 
 
   return (
