@@ -40,21 +40,22 @@ const ProductInfoPage = () => {
                             {product.name}
                         </h2>
                         <p className="max-w-md mb-8 text-gray-700 dark:text-gray-400">
-                            Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor amet
-                            Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor amet Lorem ispum dor amet
-                        </p>
+                           {product.description}</p>
                         <div className="p-4 mb-8 border border-gray-300 dark:border-gray-700 rounded-2xl">
                               
                                 <div className="mb-1 text-xs font-medium text-gray-700 dark:text-gray-400">
                                     Hurry up! Only {product.stock} left in Stock
                                 </div>
                                 <div className="w-full bg-gray-200 rounded-full h-2.5  dark:bg-gray-600">
-                                    <div className="bg-red-600 dark:bg-red-400 h-2.5 rounded-full" style={{width:`${product.price}%`}}>
+                                    <div className="bg-red-600 dark:bg-red-400 h-2.5 rounded-full" style={{width:`${product.stock}%`}}>
                                     </div>
                                 </div>
                             </div>
                         <p className="inline-block text-2xl font-semibold text-gray-700 dark:text-gray-400 ">
                             <span>{product.price} SEK</span>
+                        </p>
+                        <p className="block text-sm text-gray-700 dark:text-gray-400 ">
+                            <span>{product.weight} g</span>
                         </p>
                     </div>
                     <div className="flex flex-wrap items-center ">
