@@ -5,6 +5,9 @@ gör interface eller type för datan
 gör kanske en 404-sida?
 felmeddelande om fetchen gick fel på produktsidan och produktinfosidan
 productcard - lägg img + title eller bara title? i en Link
+tillbaka pil
+disclosure button fungerar som en ahref och renderar om allting..
+
 ### Root
 logo, header - cart?
 ### Navbar 

@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import { HeroProps } from "../models/productModels";
+import Snowfall from "react-snowfall";
 
 const Hero = ({ title, subtitle, text, buttons}: HeroProps) => {
 
 
   return (
-        <section className="relative bg-[url('./assets/images/tree.jpg')] bg-cover bg-center bg-no-repeat max-h-[509px]">
+    <>
+      <section className="relative bg-[url('./assets/images/tree.jpg')] bg-cover bg-center bg-no-repeat max-h-[509px]">
+        <div className="absolute w-full h-full z-10">
+          <div className="w-full h-full bg-transparent relative">
+            <Snowfall snowflakeCount={60}/>
+          </div>
+        </div>
+    
         <div className="absolute inset-0 max-h-[509px]"></div>
         <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 max-h-[509px]">
             <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
@@ -33,6 +41,7 @@ const Hero = ({ title, subtitle, text, buttons}: HeroProps) => {
             </div>
         </div>
         </section>
+      </>
   )
 }
 

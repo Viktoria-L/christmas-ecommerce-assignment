@@ -3,7 +3,7 @@ import { Disclosure } from '@headlessui/react' //Menu, Transition ?
 import { Bars3Icon, XMarkIcon, ShoppingCartIcon } from '@heroicons/react/24/outline'; //BellIcon?
 import { Link } from 'react-router-dom';
 import { useCart } from '../utils/context/cartContext';
-//import { useEffect } from 'react';
+import { useState } from 'react';
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -17,6 +17,7 @@ function classNames(...classes: (string | undefined | null | false)[]) {
 }
 
 export default function Navbar() {
+  const [currentPage, setCurrentPage] = useState('/');
   const cartContext = useCart();
   if (!cartContext) {
     // Om context är undefined
@@ -31,31 +32,15 @@ export default function Navbar() {
   console.log("varor i korgen", cartItemCount)
   console.log("produkter i korgen", myCart)
 
-// Sparar myCart i sessionStorage när den uppdateras
-// useEffect(() => {
-//   sessionStorage.setItem('cart', JSON.stringify(myCart));
-// }, [myCart]);
-
-// // Hämtar sparad myCart från sessionStorage när komponenten laddas
-// useEffect(() => {
-//   const storedCart = sessionStorage.getItem('cart');
-//   if (storedCart) {
-//     const parsedCart = JSON.parse(storedCart);
-//     // Använd dispatch för att sätta den hämtade datan i myCart
-//     dispatch({ type: 'SET_CART', payload: parsedCart });
-//   }
-// }, [dispatch]);
-
-
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-rose-800">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -66,13 +51,6 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                {/* <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
-                  />
-                </div> */}
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -80,10 +58,11 @@ export default function Navbar() {
                         key={item.name}
                         to={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                         currentPage === item.href ? 'bg-rose-900 text-white' : 'text-white hover:bg-rose-700',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={currentPage === item.href ? 'page' : undefined}
+                        onClick={()=> setCurrentPage(item.href)}
                       >
                         {item.name}
                       </Link>
@@ -94,12 +73,14 @@ export default function Navbar() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full bg-rose-800 p-1 text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-700"
                 >
                   <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
-                  <span>{cartItemCount}</span>
+                  
+                  <ShoppingCartIcon className="h-7 w-7" aria-hidden="true" />
+                  <div className='absolute bg-gray-700 rounded-full px-1 text-white text-sm -top-1 -right-1 hover:bg-rose-800'>
+                  <span className=''>{cartItemCount}</span>
+                  </div>
                 </button>
 
                 {/* Profile dropdown */}
@@ -170,10 +151,11 @@ export default function Navbar() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    currentPage === item.href ? 'bg-rose-900 text-white' : 'text-white hover:bg-rose-700 hover:text-gray-300',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={currentPage === item.href ? 'page' : undefined}
+                  onClick={()=> setCurrentPage(item.href)}
                 >
                   {item.name}
                 </Disclosure.Button>
