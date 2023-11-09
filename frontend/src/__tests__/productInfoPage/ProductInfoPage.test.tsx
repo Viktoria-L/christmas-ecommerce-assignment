@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import ProductInfoPage from "../../pages/ProductInfoPage";
 import '@testing-library/jest-dom';
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
+import CartProvider from "../../utils/context/cartContext";
 //import { useCart } from "../../utils/context/cartContext";
 
 //Mocka din CartContext (om du har en)
@@ -30,8 +31,7 @@ describe('ProductInfo page', ()=> {
               state: { fakeProduct },
             },] },
           );
-        render(<RouterProvider router={router} />)
-        screen.debug();
+        render(<CartProvider><RouterProvider router={router} /></CartProvider>)
     })
     it('should have a button with the text +', () => {
       const button: HTMLElement = screen.getByRole('button', { name: '+' });
@@ -72,7 +72,7 @@ describe('Product info page should have a button for adding and removing to shop
             state: { fakeProduct },
           },] },
         );
-      render(<RouterProvider router={router} />)
+      render(<CartProvider><RouterProvider router={router} /></CartProvider>)
   })
   
   it('should have a button with the text Add to cart', () => {     

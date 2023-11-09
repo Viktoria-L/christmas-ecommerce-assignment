@@ -17,27 +17,28 @@ const Hero = ({ title, subtitle, text, buttons}: HeroProps) => {
         <div className="absolute inset-0 max-h-[509px]"></div>
         <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8 max-h-[509px]">
             <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-            <h1 className="text-5xl font-dancing font-extrabold sm:text-5xl">
-                {title}
-                <strong className="block sm:text-7xl font-dancing font-extrabold text-rose-600">       
-                {subtitle}
-                </strong>
-            </h1>
-            <p className="mt-4 max-w-lg sm:text-xl/relaxed">
-                {text}
-            </p>
+              <h1 className="text-5xl font-dancing font-extrabold sm:text-5xl">
+                  {title}
+                  <strong className="block sm:text-7xl font-dancing font-extrabold text-rose-600">       
+                  {subtitle}
+                  </strong>
+              </h1>
+              <p className="mt-4 max-w-lg sm:text-xl/relaxed">
+                  {text}
+              </p>
 
-            {/* Gör om till Links  */}
-        {buttons &&
-            (<div className="mt-8 flex flex-wrap gap-4 text-center justify-center">
-                <Link to="/products" className="btn-primary">
-                Enter Candyland
-                </Link>
+        
+                {buttons &&
+                    (<div className="mt-8 flex flex-wrap gap-4 text-center justify-center">
+                        <Link to="/products" className="btn-primary z-20">
+                        Enter Candyland
+                        </Link>
 
-                <Link to="#" className="btn-secondary">
-                Learn More
-                </Link>
-            </div>)}
+                        <Link to="#" className="btn-secondary z-20">
+                        Learn More
+                        </Link>
+                    </div>)}
+
             </div>
         </div>
         </section>
@@ -60,7 +61,7 @@ export function getHeroPropsForPage(page: string) {
       const data = {
         title: "Taste the Wonder of",
         subtitle: "Christmas Sweets",
-        text: "",
+        text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illtenetur fuga ducimus numquam ea",
         buttons: false,
       };
       return data;
