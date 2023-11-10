@@ -7,6 +7,10 @@ felmeddelande om fetchen gick fel på produktsidan och produktinfosidan
 productcard - lägg img + title eller bara title? i en Link
 tillbaka pil
 disclosure button fungerar som en ahref och renderar om allting..
+error hantering kolla westcoastcars
+ERROR page eller 404 ?
+gör en ui komponent för varje countdown ruta eftersom den upprepas 4 gånger
+
 
 ### Root
 logo, header - cart?

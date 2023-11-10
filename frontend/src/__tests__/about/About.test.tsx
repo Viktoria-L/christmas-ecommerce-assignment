@@ -6,12 +6,12 @@ describe('Testing the about page', () => {
 
     it('should have a title stating "about us"', () => {
         render(<About />)
-        const heading = screen.getByRole('heading', { name: 'About us' });
+        const heading: HTMLElement = screen.getByRole('heading', { name: 'About us' });
         expect(heading).toBeInTheDocument();
     })
     it('should have a picture of the office', () => {
         render(<About />);
-        const imgElement = screen.getByRole('img', { name: /office/i });
+        const imgElement: HTMLElement = screen.getByRole('img', { name: /office/i });
         expect(imgElement).toHaveAttribute('src');
     })
  })

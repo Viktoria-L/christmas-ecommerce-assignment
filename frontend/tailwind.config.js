@@ -14,7 +14,8 @@ export default {
     extend: {},
     fontFamily: {
       noto: ['Noto Sans'],
-      dancing: ['Dancing script']
+      dancing: ['Dancing script'],
+      mountain: ['Mountains of Christmas']
     }
   },
   plugins: [],

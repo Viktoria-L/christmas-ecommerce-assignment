@@ -18,19 +18,7 @@ function classNames(...classes: (string | undefined | null | false)[]) {
 
 export default function Navbar() {
   const [currentPage, setCurrentPage] = useState('/');
-  const cartContext = useCart();
-  if (!cartContext) {
-    // Om context är undefined
-    return null; // eller visa ett alternativt innehåll
-  }
-  const { cartState } = cartContext;
-  const { myCart } = cartState;
-  //const {dispatch} = cartContext;
 
-  // Beräkna antalet produkter i varukorgen
-  const cartItemCount = myCart.length;
-  console.log("varor i korgen", cartItemCount)
-  console.log("produkter i korgen", myCart)
 
   return (
     <Disclosure as="nav" className="bg-rose-800">
@@ -71,74 +59,17 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
+                {/* <button
                   type="button"
                   className="relative rounded-full bg-rose-800 p-1 text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-700"
                 >
                   <span className="absolute -inset-1.5" />
                   
                   <ShoppingCartIcon className="h-7 w-7" aria-hidden="true" />
-                  <div className='absolute bg-gray-700 rounded-full px-1 text-white text-sm -top-1 -right-1 hover:bg-rose-800'>
+                  <div className='absolute bg-gray-700 rounded-full px-1 text-white text-sm -top-1 -right-1'>
                   <span className=''>{cartItemCount}</span>
                   </div>
-                </button>
-
-                {/* Profile dropdown */}
-                {/* <Menu as="div" className="relative ml-3">
-                  <div>
-                    <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="absolute -inset-1.5" />
-                      <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Your Profile
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Sign out
-                          </a>
-                        )}
-                      </Menu.Item>
-                    </Menu.Items>
-                  </Transition>
-                </Menu> */}
+                </button> */}
               </div>
             </div>
           </div>

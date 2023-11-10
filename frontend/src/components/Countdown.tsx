@@ -1,8 +1,15 @@
 import { useState, useEffect } from 'react';
 
+type DateObject = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
 const Countdown = () => {
-  const targetDate = new Date('December 24, 2023 00:00:00').getTime();
-  const [timeRemaining, setTimeRemaining] = useState({
+  const targetDate: number = new Date('December 24, 2023 00:00:00').getTime();
+  const [timeRemaining, setTimeRemaining] = useState<DateObject>({
     days: 0,
     hours: 0,
     minutes: 0,
@@ -10,14 +17,15 @@ const Countdown = () => {
   });
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      const currentDate = new Date().getTime();
-      const distance = targetDate - currentDate;
+    const intervalId: number = window.setInterval((): void => {
+     
+      const currentDate: number = new Date().getTime();
+      const distance: number = targetDate - currentDate;
 
-      const daysRemaining = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hoursRemaining = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutesRemaining = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const secondsRemaining = Math.floor((distance % (1000 * 60)) / 1000);
+      const daysRemaining: number = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hoursRemaining: number = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutesRemaining: number = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const secondsRemaining: number = Math.floor((distance % (1000 * 60)) / 1000);
 
       setTimeRemaining({
         days: daysRemaining,
@@ -44,7 +52,6 @@ const Countdown = () => {
 
   return (
     <div className='flex flex-row gap-4'>
-     
       
         <div className='flex flex-col justify-center border w-20 h-20 rounded-full'>
             <span>{days}</span>
