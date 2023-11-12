@@ -1,11 +1,16 @@
 // import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react' //Menu, Transition ?
-import { Bars3Icon, XMarkIcon, ShoppingCartIcon } from '@heroicons/react/24/outline'; //BellIcon?
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'; //BellIcon?
 import { Link } from 'react-router-dom';
-import { useCart } from '../utils/context/cartContext';
 import { useState } from 'react';
 
-const navigation = [
+interface NavigationItem {
+  name: string;
+  href: string;
+  current: boolean;
+}
+
+const navigation: NavigationItem[] = [
   { name: 'Home', href: '/', current: true },
   { name: 'Products', href: '/products', current: false },
   { name: 'About', href: '/about', current: false },
@@ -17,7 +22,7 @@ function classNames(...classes: (string | undefined | null | false)[]) {
 }
 
 export default function Navbar() {
-  const [currentPage, setCurrentPage] = useState('/');
+  const [currentPage, setCurrentPage] = useState<string>('/');
 
 
   return (

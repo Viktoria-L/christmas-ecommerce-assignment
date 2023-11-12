@@ -9,6 +9,7 @@ export interface ProductInfo {
     id: number;
     name: string;
     price: number;
+    weight: number;
     description: string;
     image: string,
     stock: number,
@@ -32,7 +33,7 @@ export type CartState = {
 
 export type CartAction = {
     type: string,
-    payload: any,
+    payload: ProductInfo,
  }
  
 

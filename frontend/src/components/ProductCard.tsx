@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC }from 'react';
 import { ProductInfo } from '../models/productModels';
 import { Link } from 'react-router-dom';
 import { useCart } from '../utils/context/cartContext';
@@ -8,7 +8,7 @@ type Productcard = {
     product: ProductInfo;
 }
 
-const ProductCard: React.FC<Productcard> = ({product}) => {
+const ProductCard: FC<Productcard> = ({product}: Productcard) => {
 const cartContext = useCart(); 
 
 if (!cartContext) {

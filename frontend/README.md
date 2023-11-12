@@ -10,7 +10,7 @@ disclosure button fungerar som en ahref och renderar om allting..
 error hantering kolla westcoastcars
 ERROR page eller 404 ?
 gör en ui komponent för varje countdown ruta eftersom den upprepas 4 gånger
-
+- MÅSTE göra error ifall man skrivit in en produktID som inte finns
 
 ### Root
 logo, header - cart?

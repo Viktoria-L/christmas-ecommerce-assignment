@@ -7,7 +7,7 @@ const Hero = ({ title, subtitle, text, buttons}: HeroProps) => {
 
   return (
     <>
-      <section className="relative bg-[url('./assets/images/tree.jpg')] bg-cover bg-center bg-no-repeat max-h-[509px]">
+      <section className="relative bg-[url('/images/tree.jpg')] bg-cover bg-center bg-no-repeat max-h-[509px]">
         <div className="absolute w-full h-full z-10">
           <div className="w-full h-full bg-transparent relative">
             <Snowfall snowflakeCount={60}/>
@@ -48,9 +48,9 @@ const Hero = ({ title, subtitle, text, buttons}: HeroProps) => {
 
 export default Hero;
 
-export function getHeroPropsForPage(page: string) {
+export function getHeroPropsForPage(page: string): HeroProps {
     if (page === 'Home') {
-      const data = {
+      const data: HeroProps = {
         title: "Let us find your",
         subtitle: "Christmas Spirit",
         text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illtenetur fuga ducimus numquam ea",
@@ -58,17 +58,14 @@ export function getHeroPropsForPage(page: string) {
       };
       return data;
     } else if (page === 'Products') {
-      const data = {
+      const data: HeroProps = {
         title: "Taste the Wonder of",
         subtitle: "Christmas Sweets",
         text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illtenetur fuga ducimus numquam ea",
         buttons: false,
       };
-      return data;
-
-    
-    }
+      return data;    
+    } else {
+      throw new Error(`Invalid page: ${page}`);
   }
-
-  //Text för produktsidan är för lång
-  // At our store, we take pride in offering healthy, wholesome candy options that you can enjoy guilt-free. Our candies are crafted with care, using only the finest, natural ingredients.        We believe in delivering a delicious taste experience while avoiding artificial additives and unnecessary preservatives. Indulge in the pure, unadulterated sweetness of our treats and savor the difference of a healthier choice. Treat yourself to the goodness of our candy, because you deserve the best
+}

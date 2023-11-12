@@ -24,10 +24,10 @@ const Home = () => {
       </div>
         <section className="mt-12 h-[450px] w-full flex justify-evenly">
           <article>
-            <img src="./src/assets/images/cookiedisplay.jpg" alt="" className="w-96 h-full rounded-sm" />
+          <img src="/images/cookiedisplay.jpg" alt="" className="w-96 h-full rounded-sm" />
           </article>
           <article className="">
-            <img src="./src/assets/images/packaging.jpg" alt="" className="w-96 h-full rounded-sm" />
+            <img src="/images/packaging.jpg" alt="" className="w-96 h-full rounded-sm" />
           </article>
  
         </section>

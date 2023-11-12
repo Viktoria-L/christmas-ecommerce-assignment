@@ -5,19 +5,20 @@ import { useCart } from "../utils/context/cartContext";
 
 
 const ProductInfoPage = () => {
-    const [count, setCount] = useState(1);
-
+ 
+    const [count, setCount] = useState<number>(1);
     const location = useLocation();
-    const { id } = useParams();
+    const { id } = useParams<{id:string}>();
     let product = location.state;
 
     if(product === null){
         const productId = Number(id);
          let allProducts: ProductInfo[] = useOutletContext() as ProductInfo[];
-        product = allProducts.find((product) => product.id === productId);
+        product = allProducts.find((p: ProductInfo) => p.id === productId);
     }
 
     const cartContext = useCart(); 
+    console.log("cartcontext", cartContext)
 
     if (!cartContext) {
     // Om context är undefined
@@ -96,7 +97,7 @@ const ProductInfoPage = () => {
                                         <span className="m-auto text-2xl font-thin">-</span>
                                     </button>
                                     <input type="text" className="flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-900 focus:outline-none text-md hover:text-black"
-                                       value={count} onChange={()=>{handleInputChange}} />
+                                       value={count} onChange={handleInputChange} />
                                     <button onClick={handleIncrement} className="w-20 h-full text-gray-600 bg-gray-100 border-l rounded-r outline-none cursor-pointer dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 dark:bg-gray-900 hover:text-gray-700 hover:bg-gray-300">
                                         <span className="m-auto text-2xl font-thin">+</span>
                                     </button>

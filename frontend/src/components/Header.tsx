@@ -14,7 +14,7 @@ const Header = () => {
   //const {dispatch} = cartContext;
 
   // Beräkna antalet produkter i varukorgen
-  const cartItemCount = myCart.length;
+  const cartItemCount: number = myCart.length;
   console.log("varor i korgen", cartItemCount)
   console.log("produkter i korgen", myCart)
   
@@ -24,7 +24,7 @@ const Header = () => {
         <div className="flex items-center justify-around py-4 border-b-2 border-rose-900 shadow-lg">
                   <img
                     className="h-12 w-auto"
-                    src="./src/assets/images/Elf-Hat-4.svg"
+                    src="/images/Elf-Hat-4.svg"
                     alt="Your Company"
                   />
                   <h1 className="font-mountain text-white text-3xl">Santa Sweet Delight</h1>
