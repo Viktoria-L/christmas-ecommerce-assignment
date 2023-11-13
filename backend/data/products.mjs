@@ -43,7 +43,7 @@ const products = [
       "weight": 40,
       "description": "Add a pop of joy to your holiday season with our Jolly Holiday Lollipops. These delightful confections are a whimsical and tasty way to celebrate Christmas. Each lollipop is carefully handcrafted to capture the spirit of the season with vibrant colors and festive shapes. With flavors like cherry, peppermint, and apple cinnamon, these Jolly Holiday Lollipops are a sweet reminder of holiday cheer. Perfect for stocking stuffers, party favors, or just to satisfy your sweet tooth, our lollipops bring a touch of merriment to every moment of your holiday celebrations. Experience the magic of the season with each lick!",
       "image": "http://localhost:3000/lollipops.jpg",
-      "stock": 99
+      "stock": 79
     },
     {
       "id": 6,
@@ -52,7 +52,7 @@ const products = [
       "weight": 150,
       "description": "Indulge in the delightful flavors of the season with our Holiday Macaroon Medley. These exquisite macaroons are a delightful blend of festive colors and exquisite tastes. Each macaroon is carefully crafted to capture the spirit of Christmas with flavors like cranberry, white chocolate, and gingerbread. These Holiday Macaroons are perfect for adding a touch of elegance to your holiday celebrations or as a delightful gift for loved ones. Experience the magic of the holidays with these charming and delectable treats.",
       "image": "http://localhost:3000/macaroons.jpg",
-      "stock": 99
+      "stock": 50
     },
     {
       "id": 7,
@@ -70,7 +70,7 @@ const products = [
       "weight": 100,
       "description": "Delight in the whimsical and airy delight of our Festive Meringue Whirls. These charming meringues are a burst of flavor with a touch of holiday cheer. Each meringue is beautifully swirled with festive colors and flavors like peppermint, cinnamon, and vanilla. Our Christmas Meringue Whirls are perfect for gifting, sharing, or simply indulging yourself. Let them melt in your mouth and capture the joyful spirit of the season.",
       "image": "http://localhost:3000/meringue.jpg",
-      "stock": 99
+      "stock": 5
     },
     {
       "id": 9,

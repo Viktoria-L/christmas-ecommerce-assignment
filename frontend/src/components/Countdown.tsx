@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import CountDownDetail from './CountDownDetail';
 
 type DateObject = {
   days: number;
@@ -51,26 +52,11 @@ const Countdown = () => {
   const {days, hours, minutes, seconds } = timeRemaining;
 
   return (
-    <div className='flex flex-row gap-4'>
-      
-        <div className='flex flex-col justify-center border w-20 h-20 rounded-full'>
-            <span>{days}</span>
-            <span>Days</span>
-        </div>
-        <div className='flex flex-col justify-center border w-20 h-20 rounded-full'>
-            <span>{hours}</span>
-            <span>Hours</span>
-        </div>
-        <div className='flex flex-col justify-center border w-20 h-20 rounded-full'>
-            <span>{minutes}</span>
-            <span>Minutes</span>
-        </div>
-        <div className='flex flex-col justify-center border w-20 h-20 rounded-full'>
-            <span>{seconds}</span>
-            <span>Seconds</span>
-        </div>
-
-        
+    <div className='flex flex-row gap-1 xs:gap-4 mb-2 sm:mb-0'>      
+       <CountDownDetail content={days} text='Days'/>
+       <CountDownDetail content={hours} text='Hours'/>
+       <CountDownDetail content={minutes} text='Minutes'/>
+       <CountDownDetail content={seconds} text='Seconds'/>        
     </div>
     
   );

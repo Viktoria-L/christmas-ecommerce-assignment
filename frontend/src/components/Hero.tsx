@@ -7,7 +7,7 @@ const Hero = ({ title, subtitle, text, buttons}: HeroProps) => {
 
   return (
     <>
-      <section className="relative bg-[url('/images/tree.jpg')] bg-cover bg-center bg-no-repeat max-h-[509px]">
+      <section className="relative bg-[url('/images/tree.webp')] bg-cover bg-center bg-no-repeat max-h-[509px]">
         <div className="absolute w-full h-full z-10">
           <div className="w-full h-full bg-transparent relative">
             <Snowfall snowflakeCount={60}/>
@@ -53,7 +53,7 @@ export function getHeroPropsForPage(page: string): HeroProps {
       const data: HeroProps = {
         title: "Let us find your",
         subtitle: "Christmas Spirit",
-        text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illtenetur fuga ducimus numquam ea",
+        text: "Explore our enchanting selection of sweet holiday treats and rediscover the joy of festive flavors.",
         buttons: true,
       };
       return data;
@@ -61,7 +61,7 @@ export function getHeroPropsForPage(page: string): HeroProps {
       const data: HeroProps = {
         title: "Taste the Wonder of",
         subtitle: "Christmas Sweets",
-        text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illtenetur fuga ducimus numquam ea",
+        text: "Welcome to our Christmas Sweets collection, where the enchantment of the season meets delightful flavors. Explore our handcrafted treats and savor the magic of Christmas with each indulgent bite.",
         buttons: false,
       };
       return data;    

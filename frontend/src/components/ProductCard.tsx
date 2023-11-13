@@ -20,12 +20,11 @@ const ProductCard: FC<Productcard> = ({product}: Productcard) => {
     }
 
   return (
-    <div className="ecommerce-card flex flex-col justify-between">
-      <Link to={`/product/${product.id}`} state={product}>
-      
-      <img src={product.image} alt={product.name} className='object-cover w-56 h-56 max-w-56 max-h-56'/>
-
-      <h3>{product.name}</h3></Link>
+    <div className="flex flex-col justify-between gap-2 mb-6">
+      <Link to={`/product/${product.id}`} state={product}>      
+        <img src={product.image} alt={product.name} className='object-cover w-56 h-56 max-w-56 max-h-56 rounded-sm shadow-md'/>
+        <h3 className='font-semibold mt-3'>{product.name}</h3>
+      </Link>
       <button onClick={()=> addToCart(product)} className='btn-primary'>Add to Cart</button>
     </div>
   )

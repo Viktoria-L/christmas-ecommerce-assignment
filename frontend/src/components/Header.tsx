@@ -21,7 +21,7 @@ const Header = () => {
   return (
 
     <header className="bg-rose-800">
-        <div className="flex items-center justify-around py-4 border-b-2 border-rose-900 shadow-lg">
+        <div className="flex items-center justify-between p-4 border-b-2 border-rose-900 shadow-lg">
                   <img
                     className="h-12 w-auto"
                     src="/images/Elf-Hat-4.svg"

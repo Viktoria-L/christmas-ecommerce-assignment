@@ -12,7 +12,7 @@ const Home = () => {
       <div>
         <Hero {...heroInfo} />
       </div>
-      <div className="w-full h-44 bg-rose-800 text-white text-center flex">
+      <div className="w-full h-44 bg-rose-800 text-white text-center flex flex-col justify-center sm:flex-row">
         <div className="h-44 flex flex-col justify-center mx-8">
         <h1 className="font-dancing font-bold text-4xl">Counting down to</h1>
         <h2 className="font-dancing font-bold text-3xl">Merry Moments</h2>
@@ -22,12 +22,15 @@ const Home = () => {
           <Countdown />         
         </div>
       </div>
-        <section className="mt-12 h-[450px] w-full flex justify-evenly">
-          <article>
-          <img src="/images/cookiedisplay.jpg" alt="" className="w-96 h-full rounded-sm" />
+        <section className="my-20 w-full px-3 flex flex-wrap gap-4 justify-evenly">
+          <article className="relative">
+          <img src="/images/cookiedisplay.jpg" alt="" className="w-96 h-[450px] rounded-sm" />
+          <h3 className="text-4xl text-white absolute bottom-4 left-3">Cookies & Sweets</h3>
           </article>
-          <article className="">
-            <img src="/images/packaging.jpg" alt="" className="w-96 h-full rounded-sm" />
+          <article className="relative">
+            <img src="/images/packaging.jpg" alt="" className="w-96 h-[450px] rounded-sm" />
+            <h3 className="text-4xl text-white absolute bottom-4 left-3">Beautifully Wrapped</h3>
+
           </article>
  
         </section>
