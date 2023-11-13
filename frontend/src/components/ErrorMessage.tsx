@@ -2,7 +2,6 @@ type ErrorProps = {
     text: string;
 };
 
-
 const ErrorMessage = ({text}: ErrorProps) => {
   return (
     <aside className='text-center mt-20'>

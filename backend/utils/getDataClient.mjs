@@ -1,7 +1,6 @@
 import products from '../data/products.mjs';
 
-
-const fetchData = (endpoint, query=null) => {
+const fetchData = (endpoint) => {
     let data;
     const response = {
         status: "Not found",
@@ -10,13 +9,7 @@ const fetchData = (endpoint, query=null) => {
         error: null,
     };
 
-    //Om jag inte har en sök behövs inte query,
-    // if(query){
-    //    // url += `&query=${query}`;
-    // }
-
     try {
-        //kolla om det är inskickat ett id för isf sätt datan till produkten med det id
         if(typeof endpoint === 'number'){
            const product = products.find(product => product.id === parseInt(endpoint));
            if(product !== undefined){

@@ -23,7 +23,10 @@ const ProductCard: FC<Productcard> = ({product}: Productcard) => {
     <div className="flex flex-col justify-between gap-2 mb-6">
       <Link to={`/product/${product.id}`} state={product}>      
         <img src={product.image} alt={product.name} className='object-cover w-56 h-56 max-w-56 max-h-56 rounded-sm shadow-md'/>
+        <div>
         <h3 className='font-semibold mt-3'>{product.name}</h3>
+        <p>{product.price} SEK</p>
+        </div>
       </Link>
       <button onClick={()=> addToCart(product)} className='btn-primary'>Add to Cart</button>
     </div>

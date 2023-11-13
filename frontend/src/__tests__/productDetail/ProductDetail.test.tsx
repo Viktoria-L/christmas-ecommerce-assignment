@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import ProductInfoPage from "../../pages/ProductInfoPage";
+import ProductDetail from "../../components/ProductDetail";
 import '@testing-library/jest-dom';
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import CartProvider from "../../utils/context/cartContext";
@@ -15,10 +15,10 @@ const fakeProduct: ProductInfo = {
     "stock": 50,
 }
 
-describe('ProductInfo page', ()=> {
+describe('ProductDetail page', ()=> {
   beforeEach(() => {
         const router = createMemoryRouter(
-            [{ path: "/", element: <ProductInfoPage /> }],
+            [{ path: "/", element:  <ProductDetail product={fakeProduct} /> }],
             { initialEntries: [{
               pathname: "/",
               state: { fakeProduct },

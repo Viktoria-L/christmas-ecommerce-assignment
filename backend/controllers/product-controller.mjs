@@ -7,17 +7,6 @@ const listProducts =  (req,res) => {
     res.status(response.statusCode).json(response);
 }
 
-//Behövs ens en sök?
-// const searchProducts = async (req,res) => {
-//     //const page = req.query.page !== undefined ? req.query.page : 1;
-//     const query = req.params.query;
-//     const response = await httpClient('search/product', query);
-//     console.log("sök", response)
-
-//     res.status(response.statusCode).json(response);
-
-// }
-
 const getProduct = (req,res) => {
     if (req.params.id === undefined) {
         res.status(400).json({ success: false, message: 'Bad request, productid is missing' });
@@ -25,11 +14,8 @@ const getProduct = (req,res) => {
       }
       
     const id = req.params.id;
-    //Behöver denna product ens vara med längre om den finns i fetchdata?
     const product = products.find(product => product.id === parseInt(id));
 
-    // Kalla fetchData med den hittade produkten som data
-    //const response = await httpClient('get product', product);
     const response = getDataClient(Number(id));
     res.status(response.statusCode).json(response);
     

@@ -34,11 +34,10 @@ const Hero = ({ title, subtitle, text, buttons}: HeroProps) => {
                         Enter Candyland
                         </Link>
 
-                        <Link to="#" className="btn-secondary z-20">
+                        <Link to="/about" className="btn-secondary z-20">
                         Learn More
                         </Link>
                     </div>)}
-
             </div>
         </div>
         </section>

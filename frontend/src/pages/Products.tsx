@@ -13,14 +13,14 @@ const Products = () => {
   return (
     <div>
       <Hero {...heroInfo} />      
-      <div className='max-w-7xl text-center m-auto flex flex-wrap justify-center gap-8 my-12'>
+      <div className='max-w-4xl text-center m-auto flex flex-wrap justify-center gap-8 my-12'>
         {products.length !== 0 ? products.map((product) => (
           <ProductCard key={product.id} product={product} />
           )) : 
           (<ErrorMessage text="Couldn't fetch data..."/>)}
       </div>
 
-      </div>
+    </div>
     
   );
 }
