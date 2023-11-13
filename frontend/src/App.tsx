@@ -21,7 +21,6 @@ function App() {
       <Route path='/products' element={<Products />}></Route>
       <Route path='/product/:id' element={<ProductInfoPage />}></Route>
       <Route path='/about' element={<About />}></Route>
-
     </Route>
     ));
 

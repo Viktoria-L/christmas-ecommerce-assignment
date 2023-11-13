@@ -3,23 +3,21 @@ import { ProductInfo } from '../models/productModels';
 import { Link } from 'react-router-dom';
 import { useCart } from '../utils/context/cartContext';
 
-// Props för komponenten
 type Productcard = {
     product: ProductInfo;
 }
 
 const ProductCard: FC<Productcard> = ({product}: Productcard) => {
-const cartContext = useCart(); 
+    const cartContext = useCart(); 
 
-if (!cartContext) {
-  // Om context är undefined
-  return null; // eller visa ett alternativt innehåll
-}
-const { dispatch } = cartContext;
+    if (!cartContext) {
+      return null;
+    }
+    const { dispatch } = cartContext;
 
-const addToCart = (product: ProductInfo) =>{
-  dispatch({type: 'ADD_TO_CART', payload: product});
-}
+    const addToCart = (product: ProductInfo) =>{
+      dispatch({type: 'ADD_TO_CART', payload: product});
+    }
 
   return (
     <div className="ecommerce-card flex flex-col justify-between">

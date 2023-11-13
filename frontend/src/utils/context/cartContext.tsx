@@ -9,8 +9,6 @@ function cartReducer(state: CartState, action: CartAction): CartState {
     switch(action.type){
         case 'ADD_TO_CART':
             return {...state, myCart: [...state.myCart, action.payload]};
-        // case 'SET_CART':
-        //     return {...state, myCart: [...state.myCart, action.payload]};
         default:
             return state;
     }
@@ -32,5 +30,9 @@ function CartProvider ({children}: CartProviderProps) {
 export default CartProvider;
 
 export function useCart() {
-    return useContext(CartContext);
+    const context = useContext(CartContext);
+    if (context === undefined) {
+        throw new Error('useCart must be used within a CartProvider');
+    }
+    return context;
   }

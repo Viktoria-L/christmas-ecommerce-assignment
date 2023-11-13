@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       <div>
-        <Hero title={heroInfo.title} subtitle={heroInfo.subtitle} text={heroInfo.text} buttons={true} />
+        <Hero {...heroInfo} />
       </div>
       <div className="w-full h-44 bg-rose-800 text-white text-center flex">
         <div className="h-44 flex flex-col justify-center mx-8">

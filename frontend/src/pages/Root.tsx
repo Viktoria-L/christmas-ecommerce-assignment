@@ -5,7 +5,7 @@ import Header from "../components/Header";
 
 const Root = () => {
 
-  let allProducts: ProductInfo[] = useLoaderData() as ProductInfo[];
+  let allProducts: ProductInfo[] = useLoaderData() as ProductInfo[] || [];
 
   return (
     <div>
